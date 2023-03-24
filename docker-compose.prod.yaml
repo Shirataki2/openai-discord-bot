@@ -1,0 +1,13 @@
+version: "3"
+
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    working_dir: /app
+    volumes:
+      - ./.env.prod:/app/.env:rw
+    env_file:
+      - .env.prod
+    restart: always
